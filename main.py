@@ -30,24 +30,32 @@
 # 200
 # Ответ: [2, 3]
 
-# import random
+import random
 
-# nums = int(input("Введите количество элементов массива: "))
-# minHel = int(input("Введите начало диапазона: "))
-# maxHel = int(input("Введите конец диапазона: "))
+nums = int(input("Введите количество элементов массива: "))
+minHel = int(input("Введите начало диапазона: "))
+maxHel = int(input("Введите конец диапазона: "))
 
-# newlist = []
-# i = 0
-# while i < nums:
-#     newlist.append(random.randint(0, 100))
-#     i += 1
 
-# indexList = []
-# k = 0
-# while k < len(newlist):
-#     if minHel <= newlist[k] <= maxHel:
-#         indexList.append(k)
-#     k += 1
+def genList(nums):
+    newlist = []
+    i = 0
+    while i < nums:
+        newlist.append(random.randint(0, 100))
+        i += 1
+    return newlist
 
-# print(newlist)
-# print(indexList)
+
+def findIndex(newList, minHel, maxHel):
+    indexList = []
+    k = 0
+    while k < len(newList):
+        if minHel <= newList[k] <= maxHel:
+            indexList.append(k)
+        k += 1
+    return indexList
+
+newList = genList(nums)
+print(newList)
+indexList = findIndex(newList, minHel, maxHel)
+print(indexList)
